@@ -40,59 +40,18 @@ def scrape_next_page_link(html_content):
 def scrape_noticia(html_content):
     selector = Selector(text=html_content)
 
-    # url
-    link_page = selector.css("link[rel=canonical]::attr(href)").get()
-
-    # title
-    title_noticia = selector.css(".entry-title::text").get()
-
-    # timestamp
-    all_date_noticia = selector.css(".post-modified-info::text").get()
-    format_data = all_date_noticia.split()
-    day_create = format_data[0]
-
-    # author
-    author_noticia = selector.css(".author .url::text").get()
-
-    # comments
-    div_comments = selector.css(".post-comments").getall()
-    comments_noticia = selector.css(".comment-body").getall()
-    count_comments = len(comments_noticia)
-
-    if not div_comments:
-        count_comments = 0
-
-    # paragraph
-    all_text = selector.css(".entry-content p::text").getall()
-
-    # tags
-    tags_noticia = selector.css(".post-outer .label::text").getall()
-
-    # category
-    category_noticia = selector.css(".category-style .label::text").get()
-
-    info = {
-        "url": link_page,
-        "title": title_noticia,
-        "timestamp": day_create,
-        "writer": author_noticia,
-        "comments_count": count_comments,
-        "summary": all_text[0],
-        "tags": tags_noticia,
-        "category": category_noticia,
+    return {
+        "url": selector.css("link[rel='canonical']::attr(href)").get(),
+        "title": selector.css("h1.entry-title::text").get().strip(),
+        "timestamp": selector.css(".meta-date::text").get(),
+        "writer": selector.css("span.author a::text").get(),
+        "comments_count": len(selector.css(".post-comments").getall()),
+        "summary": "".join(
+            selector.css(".entry-content > p:nth-of-type(1) ::text").getall()
+        ).strip(),
+        "tags": selector.css(".post-tags a::text").getall(),
+        "category": selector.css(".label::text").get(),
     }
-
-    # print(info)
-    print(tags_noticia)
-    return info
-
-
-scrape_noticia(
-    fetch(
-        "https://blog.betrybe.com/carreira/passos-fundamentais-para-aprender-a-programar/"
-        # "https://blog.betrybe.com/carreira/rescisao-indireta/"
-    )
-)
 
 
 # Requisito 5
