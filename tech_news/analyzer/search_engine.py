@@ -8,11 +8,7 @@ def search_by_title(title):
         {"title": {"$regex": f"{title}", "$options": "i"}}
     )
 
-    result = list()
-
-    for item in find:
-        result.append((item["title"], item["url"]))
-    return result
+    return [(item["title"], item["url"]) for item in find]
 
 
 # Requisito 7
@@ -34,7 +30,11 @@ def search_by_date(date):
 
 # Requisito 8
 def search_by_tag(tag):
-    """Seu código deve vir aqui"""
+    find = search_news(
+        {"tags": {"$regex": tag, "$options": "i"}}
+    )
+
+    return [(item["title"], item["url"]) for item in find]
 
 
 # Requisito 9
