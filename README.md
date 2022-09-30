@@ -6,16 +6,15 @@
   As notícias podem ser obtidas através da raspagem do [_blog da Trybe_](https://blog.betrybe.com).
 
 ## Habilidades:
-    -Utilizar o terminal interativo do Python
+-Utilizar o terminal interativo do Python
     
-    -Escrever seus próprios módulos e importá-los em outros 
-    códigos
+-Escrever seus próprios módulos e importá-los em outros códigos
     
-    -Aplicar técnicas de raspagem de dados
+-Aplicar técnicas de raspagem de dados
     
-    -Extrair dados de conteúdo HTML
+-Extrair dados de conteúdo HTML
     
-    -Armazenar os dados obtidos em um banco de dados
+-Armazenar os dados obtidos em um banco de dados
 
 <details>
   <summary>
