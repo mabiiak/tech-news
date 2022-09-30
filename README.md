@@ -79,7 +79,7 @@
 </details>
 
 <details>
-  <summary><strong>🏕️ Ambiente Virtual</strong></summary><br />
+  <summary><strong> Ambiente Virtual</strong></summary><br />
   O Python oferece um recurso chamado de ambiente virtual, onde permite sua máquina rodar sem conflitos, diferentes tipos de projetos com diferentes versões de bibliotecas.
 
   1. **criar o ambiente virtual**
@@ -158,7 +158,7 @@ python3 -m pytest
 </details>
 
 <details>
-  <summary><strong>🐳Docker</strong></summary>
+  <summary><strong>Docker</strong></summary>
   Caso queria executar os seus testes de projeto via `Docker-compose`, substituindo o ambiente virtual, execute o comando:
 
   ```bash
